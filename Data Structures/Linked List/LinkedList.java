@@ -33,16 +33,41 @@ public class LinkedList {
 		return list;		
 	}
 
+	public static LinkedList delete(LinkedList list, int key) {
+
+		Node currNode = list.head, prevNode = null;
+
+		if (currNode != null && currNode.value == key) {
+
+			list.head = currNode.next;
+			return list;
+		}
+
+		while (currNode != null && currNode.value != key) {
+
+			prevNode = currNode;
+			currNode = currNode.next;
+		}
+
+		if (currNode != null) {
+
+			prevNode.next = currNode.next;
+			return list;
+		}
+
+		return list;
+	}
+
 	public static void printList(LinkedList list) {
 
 		Node currNode = list.head;
 		while(currNode != null) {
 
-			System.out.print(currNode.value + "-->");
+			System.out.print(currNode.value + " --> ");
 			currNode = currNode.next;
 
 		}
-		System.out.print("null");
+		System.out.print("null\n");
 	}
 
 	public static void main(String[] args) {
@@ -56,6 +81,14 @@ public class LinkedList {
 		list.insert(list, 5);
 		list.insert(list, 6);
 		list.insert(list, 7);
+		
+		printList(list);
+		
+		list.delete(list, 4);
+		
+		printList(list);
+		
+		list.delete(list, 6);
 		
 		printList(list);
 	}
