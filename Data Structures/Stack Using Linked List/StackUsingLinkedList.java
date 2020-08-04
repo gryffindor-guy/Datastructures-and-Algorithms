@@ -65,6 +65,23 @@ public class StackUsingLinkedList {
         
 	}
 
+	public void printStack() {
+
+        System.out.println("Printing items in the stack");
+
+		if (this.head == null) {
+			System.out.println("Stack is Empty");
+		} else {
+            StackNode temp =this.head;
+			while (temp != null) {
+
+				System.out.println(temp.value);
+				temp = temp.next;
+			}
+		}
+
+	}
+
 
 	public static void main(String[] args) {
 
@@ -72,25 +89,33 @@ public class StackUsingLinkedList {
         StackUsingLinkedList myStack2 = new StackUsingLinkedList();
 
 		myStack.push(3);
+		myStack.printStack();
 		myStack.push(2);
+		myStack.printStack();
 		myStack.push(1);
+		myStack.printStack();
         System.out.println(myStack.isEmpty());
 
 
 		System.out.println(myStack.pop());
+		myStack.printStack();
+
 		System.out.println(myStack.peek());
 
 
-
         myStack2.push(100);
+		myStack2.printStack();
 		myStack2.push(10);
+		myStack2.printStack();
 		myStack2.push(1);
+		myStack2.printStack();
         System.out.println(myStack2.isEmpty());
 
 
 		System.out.println(myStack2.pop());
-		System.out.println(myStack2.peek());
+		myStack2.printStack();
 
+		System.out.println(myStack2.peek());
 
 
 	}
