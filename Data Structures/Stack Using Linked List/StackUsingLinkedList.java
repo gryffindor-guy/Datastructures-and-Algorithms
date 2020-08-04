@@ -52,6 +52,19 @@ public class StackUsingLinkedList {
 		return poppedItem;
 	}
 
+	public int peek() {
+
+		if (this.head == null) {
+
+			System.out.println("The Stack is Empty");
+            return Integer.MIN_VALUE;
+		} else {
+            System.out.println("the peek item in the stack is : ");
+			return this.head.value;
+		}
+        
+	}
+
 
 	public static void main(String[] args) {
 
@@ -65,6 +78,7 @@ public class StackUsingLinkedList {
 
 
 		System.out.println(myStack.pop());
+		System.out.println(myStack.peek());
 
 
 
@@ -75,6 +89,7 @@ public class StackUsingLinkedList {
 
 
 		System.out.println(myStack2.pop());
+		System.out.println(myStack2.peek());
 
 
 
