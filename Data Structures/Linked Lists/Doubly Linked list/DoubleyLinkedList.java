@@ -77,6 +77,26 @@ public class Main {
 				
 	}
 
+	public void deleteNode(Node del) { 
+  
+        if (this.head == null || del == null) { 
+            return; 
+        } 
+  
+        if (this.head == del) { 
+            this.head = del.next; 
+        } 
+  
+        if (del.next != null) { 
+            del.next.prev = del.prev; 
+        } 
+  
+        if (del.prev != null) { 
+            del.prev.next = del.next; 
+        } 
+        return; 
+    }
+
 	public void printList() {
 
         Node node = this.head;
@@ -125,7 +145,9 @@ public class Main {
 
         list.insertAt(list.head, 20);
 		list.printList();
-
+        
+        list.deleteNode(list.head.next);
+        list.printList();
         	
 	}
 }
