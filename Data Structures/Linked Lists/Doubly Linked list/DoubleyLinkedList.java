@@ -30,6 +30,30 @@ public class Main {
 
 	}
 
+	public void insertAt(Node prevNode, int valueToBeInserted) {
+
+		if (prevNode == null) {
+			System.out.println("The prevNode cannot be null...");
+			return;
+		}
+
+		Node newNode = new Node(valueToBeInserted);
+
+		newNode.next = prevNode.next;
+		prevNode.next = newNode;
+		newNode.prev = prevNode;
+
+		if (newNode.next != null) {
+
+			newNode.next.prev = newNode;
+		}
+        System.out.println("Inserted at required position");
+
+
+
+
+	}
+
 	public void append(int value) {
 
 		Node newNode = new Node(value);
@@ -95,6 +119,15 @@ public class Main {
         list.append(10);
         list.printList();
 
+        list.insertAt(list.head, 2);
+        list.printList();
+
+
+        list.insertAt(list.head, 20);
+		list.printList();
+
         	
 	}
 }
+
+
